@@ -11,18 +11,23 @@
     <label for="startCharacter">Start Characters</label>
     <input type="number" name="startCharacter" id="startCharacter">
     <br>
-    <button onclick="createTable(startCharacter.value, table.id)">Start</button>
+    <label for="noOfCharacter">Number of Characters</label>
+    <input type="number" name="noOfCharacter" id="noOfCharacter">
+    <br>
+    <button onclick="createTable(startCharacter.value, noOfCharacter.value, table.id)">Start</button>
     <br>
     <table id="table" onload="alert()"></table>
+    <br>
 
     <script>
-        function createTable(inVal, outLoc){
+        function createTable(inVal, inSize, outLoc){
     
             var tmpStr = "";
             
             iRowCount = 0;
             iStartCount = iRowCount + parseInt(inVal);
-            for (let iRowCount = iStartCount; iRowCount < 10 + iStartCount; iRowCount++) {
+
+            for (let iRowCount = iStartCount; iRowCount < parseInt(inSize) + iStartCount; iRowCount++) {
                 tmpStr = tmpStr + "<tr>";
                 tmpStr = tmpStr + "<td>";
                 tmpStr = tmpStr + iRowCount.toString();
