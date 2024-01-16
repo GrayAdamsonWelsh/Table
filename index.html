@@ -9,15 +9,20 @@
     <header>Table</header>
 
     <label for="startCharacter">Start Characters</label>
-    <input type="number" name="startCharacter" id="startCharacter">
+    <input type="number" name="startCharacter" id="startCharacter" value=10>
     <br>
     <label for="noOfCharacter">Number of Characters</label>
-    <input type="number" name="noOfCharacter" id="noOfCharacter">
+    <input type="number" name="noOfCharacter" id="noOfCharacter" value=10>
     <br>
     <button onclick="createTable(startCharacter.value, noOfCharacter.value, table.id)">Start</button>
     <br>
     <table id="table" onload="alert()"></table>
     <br>
+    <label for="pageNumber">Page Number</label>
+    <input type="number" name="pageNumber" id="pageNumber" 
+        onfocusout="pageSelected(pageNumber.value, startCharacter.value, noOfCharacter.value, table.id)">
+    <br>
+
 
     <script>
         function createTable(inVal, inSize, outLoc){
@@ -39,6 +44,12 @@
             }
             document.getElementById(outLoc).innerHTML = tmpStr;
         }
+    
+        function pageSelected(inPage, inVal, inSize, outLoc){
+            startPos = parseInt(inPage) * parseInt(inSize);
+            createTable(startPos, inSize, outLoc)
+        }
+
 
     </script>
 </body>
