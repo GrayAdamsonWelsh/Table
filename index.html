@@ -7,15 +7,22 @@
 </head>
 <body>
     <header>Table</header>
+
+    <label for="startCharacter">Start Characters</label>
+    <input type="number" name="startCharacter" id="startCharacter">
+    <br>
+    <button onclick="createTable(startCharacter.value, table.id)">Start</button>
+    <br>
     <table id="table" onload="alert()"></table>
-    <button onclick="createTable(table.id)">Start</button>
+
     <script>
-        function createTable(outLoc){
+        function createTable(inVal, outLoc){
     
             var tmpStr = "";
             
             iRowCount = 0;
-            for (let iRowCount = 0; iRowCount < 10; iRowCount++) {
+            iStartCount = iRowCount + parseInt(inVal);
+            for (let iRowCount = iStartCount; iRowCount < 10 + iStartCount; iRowCount++) {
                 tmpStr = tmpStr + "<tr>";
                 tmpStr = tmpStr + "<td>";
                 tmpStr = tmpStr + iRowCount.toString();
