@@ -21,7 +21,10 @@
     <label for="pageNumber">Page Number</label>
     <input type="number" name="pageNumber" id="pageNumber" value="0">
     <br>
+    <button onclick="moveSelected(0, startCharacter.value, noOfCharacter.value, table.id, pageNumber.id)">Start Page</button>
+    <button onclick="moveSelected(parseInt(pageNumber.value) - 1, startCharacter.value, noOfCharacter.value, table.id, pageNumber.id)">Previous Page</button>
     <button onclick="pageSelected(pageNumber.value, startCharacter.value, noOfCharacter.value, table.id)">Goto Page</button>
+    <button onclick="moveSelected(parseInt(pageNumber.value) + 1, startCharacter.value, noOfCharacter.value, table.id, pageNumber.id)">Previous Page</button>
 
     <script>
         function createTable(inVal, inSize, outLoc){
@@ -49,6 +52,13 @@
             createTable(startPos, inSize, outLoc)
         }
 
+        function moveSelected(inPage, inVal, inSize, outLoc, outPage){
+
+            var inputField = document.getElementById(outPage);
+            inputField.value = inPage;
+            pageSelected(inPage, inVal, inSize, outLoc);
+            
+        }
 
     </script>
 </body>
