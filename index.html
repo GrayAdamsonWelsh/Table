@@ -19,10 +19,9 @@
     <table id="table" onload="alert()"></table>
     <br>
     <label for="pageNumber">Page Number</label>
-    <input type="number" name="pageNumber" id="pageNumber" 
-        onfocusout="pageSelected(pageNumber.value, startCharacter.value, noOfCharacter.value, table.id)">
+    <input type="number" name="pageNumber" id="pageNumber" value="0">
     <br>
-
+    <button onclick="pageSelected(pageNumber.value, startCharacter.value, noOfCharacter.value, table.id)">Goto Page</button>
 
     <script>
         function createTable(inVal, inSize, outLoc){
